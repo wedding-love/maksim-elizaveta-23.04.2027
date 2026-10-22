@@ -49,6 +49,7 @@
       z-index: 1000;
       background: url('Кремовый конверт с печатью-сердцем.png') no-repeat center center;
       background-size: cover;
+      cursor: pointer;
       transition: opacity 2.5s ease-in-out, filter 2.5s ease-in-out, transform 3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .envelope-overlay.fading {
@@ -56,38 +57,6 @@
       opacity: 0;
       transform: scale(1.15);
       pointer-events: none;
-    }
-    .seal-button {
-      position: absolute;
-      top: 55%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: clamp(100px, 18vw, 130px);
-      height: clamp(100px, 18vw, 130px);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.85);
-      border: 3px solid #eae3d9;
-      box-shadow: 0 0 30px rgba(234, 227, 217, 0.6);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
-      animation: pulse 2s infinite;
-      z-index: 10;
-    }
-    .seal-button:hover {
-      animation-play-state: paused;
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-    .seal-button.clicked {
-      animation: none;
-      transform: translate(-50%, -50%) rotate(360deg) scale(0.8);
-      opacity: 0;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(234, 227, 217, 0.7); }
-      70% { box-shadow: 0 0 0 20px rgba(234, 227, 217, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(234, 227, 217, 0); }
     }
 
     .black-screen {
@@ -372,14 +341,8 @@
 <body>
   <div class="app-container">
 
-    <!-- Экран конверта -->
-    <div id="envelope-overlay" class="envelope-overlay">
-      <button id="open-btn" class="seal-button" type="button" aria-label="Открыть приглашение">
-        <svg viewBox="0 0 24 24" fill="#bb687a" stroke="none" style="width:60px;height:60px;">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-      </button>
-    </div>
+    <!-- Экран конверта (кликабельна вся область) -->
+    <div id="envelope-overlay" class="envelope-overlay" role="button" aria-label="Открыть приглашение" tabindex="0"></div>
 
     <!-- Черный экран -->
     <div id="black-screen" class="black-screen"></div>
@@ -508,7 +471,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const openBtn = document.getElementById('open-btn');
       const envelopeOverlay = document.getElementById('envelope-overlay');
       const blackScreen = document.getElementById('black-screen');
       const invScreen = document.getElementById('invScreen');
@@ -540,17 +502,22 @@
       }
 
       // --- Открытие конверта ---
-      openBtn.addEventListener('click', () => {
-        openBtn.classList.add('clicked');
+      function openInvitation() {
+        // Плавное исчезновение конверта
+        envelopeOverlay.classList.add('fading');
 
+        // Частицы
         setTimeout(() => {
           createParticles();
           animateParticles();
         }, 300);
 
-        setTimeout(() => { envelopeOverlay.classList.add('fading'); }, 300);
-        setTimeout(() => { blackScreen.classList.add('active'); }, 600);
+        // Черный экран
+        setTimeout(() => {
+          blackScreen.classList.add('active');
+        }, 600);
 
+        // Показ приглашения
         setTimeout(() => {
           blackScreen.classList.add('fade-out');
           invScreen.scrollTop = 0;
@@ -558,11 +525,20 @@
           requestAnimationFrame(() => { handleScrollAnimation(); });
         }, 1800);
 
+        // Уборка
         setTimeout(() => {
           envelopeOverlay.style.display = 'none';
           blackScreen.classList.remove('active', 'fade-out');
           particlesContainer.style.display = 'none';
         }, 4000);
+      }
+
+      envelopeOverlay.addEventListener('click', openInvitation);
+      envelopeOverlay.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openInvitation();
+        }
       });
 
       // --- Анимация появления элементов при скролле ---
