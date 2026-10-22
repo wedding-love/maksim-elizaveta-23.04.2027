@@ -10,9 +10,8 @@
   <meta property="og:title" content="Maxim & Elizaveta | 23.04.2027" />
   <meta property="og:description" content="Дорогие друзья! Мы очень ждем вас на нашей свадьбе. Будем счастливы разделить этот день вместе с вами." />
   <meta property="og:url" content="https://wedding-love.github.io/maksim-elizaveta-23.04.2027/" />
-  <!-- ИЗМЕНЕНО: Теперь путь ведет на og-image.jpg -->
   <meta property="og:image" content="https://wedding-love.github.io/maksim-elizaveta-23.04.2027/og-image.jpg" />
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -24,6 +23,10 @@
 
     body {
       background-color: #000;
+      background-image: url('A4F12B8D-C8F8-4A6C-B92E-0564A01D6B11 - Лиза Коваленко.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       display: flex; justify-content: center; align-items: center;
       height: 100vh; height: 100dvh; overflow: hidden;
       font-family: 'Cormorant Garamond', Georgia, serif;
@@ -44,7 +47,7 @@
       width: 100%; height: 100%;
       display: flex; flex-direction: column; justify-content: space-between;
       padding: 60px 20px 50px;
-      background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), 
+      background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%),
                         url('A4F12B8D-C8F8-4A6C-B92E-0564A01D6B11 - Лиза Коваленко.jpeg');
       background-size: cover; background-position: center;
       z-index: 20; transition: opacity 0.6s ease, visibility 0.6s ease;
@@ -120,7 +123,7 @@
     /* Hero (Первый экран после звонка) */
     .inv-hero {
       width: 100%; height: 100vh; height: 100dvh;
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.75) 100%), 
+      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.75) 100%),
                   url('A4F12B8D-C8F8-4A6C-B92E-0564A01D6B11 - Лиза Коваленко.jpeg') center/cover;
       display: flex; flex-direction: column; justify-content: space-between;
       padding: 80px 30px 60px; color: #fff; flex-shrink: 0;
@@ -485,7 +488,7 @@
       const btn = document.getElementById('sliderBtn');
       const callScreen = document.getElementById('callScreen');
       const invScreen = document.getElementById('invScreen');
-      
+
       let isDragging = false;
       let startX = 0, currentX = 0, maxSlide = 0;
 
