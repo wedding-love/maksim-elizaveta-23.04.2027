@@ -23,7 +23,7 @@
 
     body {
       background-color: #000;
-      background-image: url('A4F12B8D-C8F8-4A6C-B92E-0564A01D6B11 - Лиза Коваленко.jpeg');
+      background-image: url('IMG_1570.jpeg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -137,7 +137,7 @@
       height: 100vh;
       height: 100dvh;
       background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.75) 100%),
-                  url('A4F12B8D-C8F8-4A6C-B92E-0564A01D6B11 - Лиза Коваленко.jpeg') center -25% / cover;
+                  url('IMG_1570.jpeg') center -25% / cover;
       display: flex; flex-direction: column; justify-content: space-between;
       padding: calc(28px + env(safe-area-inset-top, 0px)) 20px 60px;
       color: #fff; flex-shrink: 0;
@@ -255,7 +255,7 @@
     }
     .venue-image { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Детали (бывший дресс-код) */
+    /* Детали */
     .inv-dresscode {
       background-color: #F2EBE3; color: #1E1E1E; padding: 80px 30px;
       display: flex; flex-direction: column; align-items: center;
@@ -286,7 +286,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;
     }
 
-    /* Пожелания (Wishes) */
+    /* Пожелания */
     .inv-gifts {
       background-color: #FFFFFF; color: #000000; padding: 80px 30px;
       display: flex; flex-direction: column; align-items: center;
@@ -308,7 +308,7 @@
       border-left: 2px solid #1E1E1E; padding-left: 20px;
     }
 
-    /* ----- ТАЙМЕР ----- */
+    /* Таймер */
     .countdown-section {
       background-color: #EAE3D9;
       padding: 60px 20px 80px;
@@ -337,7 +337,7 @@
       font-weight: 300; color: #1E1E1E; opacity: 0.6; margin: 0 2px; line-height: 1;
     }
 
-    /* ----- АНКЕТА ГОСТЯ ----- */
+    /* Анкета гостя */
     .inv-form {
       background-color: #FFFFFF;
       color: #000000;
@@ -405,9 +405,7 @@
       -moz-appearance: none;
       appearance: none;
     }
-    .form-input:focus {
-      border-color: #4A3F35;
-    }
+    .form-input:focus { border-color: #4A3F35; }
     .radio-group {
       display: flex;
       flex-direction: column;
@@ -425,11 +423,9 @@
       font-weight: 500;
     }
     .radio-option input {
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       accent-color: #4A3F35;
-      margin: 0;
-      flex-shrink: 0;
+      margin: 0; flex-shrink: 0;
     }
     .checkbox-group {
       display: flex;
@@ -448,11 +444,9 @@
       font-weight: 500;
     }
     .checkbox-option input {
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       accent-color: #4A3F35;
-      margin: 0;
-      flex-shrink: 0;
+      margin: 0; flex-shrink: 0;
     }
     .form-textarea {
       width: 100%;
@@ -469,9 +463,7 @@
       -moz-appearance: none;
       appearance: none;
     }
-    .form-textarea:focus {
-      border-color: #4A3F35;
-    }
+    .form-textarea:focus { border-color: #4A3F35; }
     .form-submit {
       width: 100%;
       max-width: 340px;
@@ -491,12 +483,24 @@
       -moz-appearance: none;
       appearance: none;
     }
-    .form-submit:hover {
-      background: #4A3F35;
-    }
-    .other-drink-block {
+    .form-submit:hover { background: #4A3F35; }
+    .form-submit:disabled { opacity: 0.6; cursor: wait; }
+    .other-drink-block { display: none; margin-top: 14px; }
+
+    /* Сообщение об успешной отправке */
+    .form-success {
       display: none;
-      margin-top: 14px;
+      width: 100%;
+      max-width: 340px;
+      padding: 30px 20px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #1E1E1E;
+      font-style: italic;
+      line-height: 1.5;
+      border: 1px solid #4A3F35;
+      background: #FAFAFA;
     }
 
     /* Контакты */
@@ -531,10 +535,7 @@
       border-bottom: 1px dashed #B8A99A;
       padding-bottom: 18px;
     }
-    .contact-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
     .contact-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 17px;
@@ -556,9 +557,7 @@
       transition: color 0.2s;
     }
     .contact-phone:hover,
-    .contact-phone:active {
-      color: #6B5E53;
-    }
+    .contact-phone:active { color: #6B5E53; }
 
     @media (max-width: 400px) {
       .location-title, .timing-title, .invite-title,
@@ -644,7 +643,6 @@
         </div>
       </div>
 
-      <!-- Детали (бывший дресс-код) -->
       <div class="inv-dresscode fade-in-element">
         <div class="dresscode-header">
           <span class="dresscode-tag">[Детали]</span>
@@ -662,7 +660,6 @@
         </div>
       </div>
 
-      <!-- Пожелания (Wishes) -->
       <div class="inv-gifts fade-in-element">
         <div class="gifts-header">
           <span class="gifts-tag">[Пожелания]</span>
@@ -673,7 +670,6 @@
         </p>
       </div>
 
-      <!-- ТАЙМЕР -->
       <div class="countdown-section fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
@@ -699,76 +695,84 @@
         </div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ -->
-      <div class="inv-form fade-in-element">
+      <!-- АНКЕТА ГОСТЯ (подключена к Formspree) -->
+      <form class="inv-form fade-in-element" id="guestForm"
+            action="https://formspree.io/f/xoeejjpp" method="POST">
         <div class="form-header">
           <span class="form-tag">[Анкета гостя]</span>
           <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Имя и Фамилия</label>
-          <input type="text" class="form-input" placeholder="Введите ваше полное имя" required>
+          <label class="form-label" for="fullName">Имя и Фамилия</label>
+          <input type="text" class="form-input" id="fullName" name="Имя и Фамилия"
+                 placeholder="Введите ваше полное имя" required>
         </div>
 
         <div class="form-group">
           <label class="form-label">Сможете ли вы присутствовать?</label>
           <div class="radio-group">
             <label class="radio-option">
-              <input type="radio" name="attendance" value="yes" required>
+              <input type="radio" name="Присутствие" value="Да, с радостью" required>
               Да, с радостью
             </label>
             <label class="radio-option">
-              <input type="radio" name="attendance" value="no">
+              <input type="radio" name="Присутствие" value="К сожалению, нет">
               К сожалению, нет
             </label>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Будете ли вы со своей второй половинкой?</label>
+          <label class="form-label" for="partner">Будете ли вы со своей второй половинкой?</label>
           <p class="form-hint">Если да, укажите имя и фамилию вас двоих</p>
-          <input type="text" class="form-input" placeholder="Имя Вашей второй половинки">
+          <input type="text" class="form-input" id="partner" name="Вторая половинка"
+                 placeholder="Имя Вашей второй половинки">
         </div>
 
         <div class="form-group">
           <label class="form-label">Предпочтения по напиткам</label>
           <div class="checkbox-group">
             <label class="checkbox-option">
-              <input type="checkbox" name="drink" value="wine">
+              <input type="checkbox" name="Напитки" value="Вино">
               Вино
             </label>
             <label class="checkbox-option">
-              <input type="checkbox" name="drink" value="champagne">
+              <input type="checkbox" name="Напитки" value="Шампанское">
               Шампанское
             </label>
             <label class="checkbox-option">
-              <input type="checkbox" name="drink" value="vodka">
+              <input type="checkbox" name="Напитки" value="Водка">
               Водка
             </label>
             <label class="checkbox-option">
-              <input type="checkbox" name="drink" value="soft">
+              <input type="checkbox" name="Напитки" value="Безалкогольное">
               Безалкогольное
             </label>
             <label class="checkbox-option">
-              <input type="checkbox" name="drink" value="other" id="drinkOther">
+              <input type="checkbox" name="Напитки" value="Другое" id="drinkOther">
               Что-то другое
             </label>
           </div>
           <div class="other-drink-block" id="otherDrinkBlock">
-            <input type="text" class="form-input" id="otherDrinkInput" placeholder="Напишите, что бы вам хотелось">
+            <input type="text" class="form-input" id="otherDrinkInput" name="Напитки (другое)"
+                   placeholder="Напишите, что бы вам хотелось">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Ваши пожелания молодожёнам</label>
-          <textarea class="form-textarea" placeholder="Напишите несколько тёплых слов..."></textarea>
+          <label class="form-label" for="wishes">Ваши пожелания молодожёнам</label>
+          <textarea class="form-textarea" id="wishes" name="Пожелания"
+                    placeholder="Напишите несколько тёплых слов..."></textarea>
         </div>
 
-        <button class="form-submit">Отправить</button>
-      </div>
+        <button type="submit" class="form-submit" id="submitBtn">Отправить</button>
 
-      <!-- Контакты (после анкеты) -->
+        <div class="form-success" id="formSuccess">
+          Спасибо! 💌<br>Ваш ответ отправлен.
+        </div>
+      </form>
+
       <div class="inv-contacts fade-in-element">
         <div class="contacts-header">
           <span class="contacts-tag">[Контакты]</span>
@@ -827,22 +831,14 @@
       function openInvitation() {
         envelopeOverlay.classList.add('fading');
 
-        setTimeout(() => {
-          createParticles();
-          animateParticles();
-        }, 300);
-
-        setTimeout(() => {
-          blackScreen.classList.add('active');
-        }, 600);
-
+        setTimeout(() => { createParticles(); animateParticles(); }, 300);
+        setTimeout(() => { blackScreen.classList.add('active'); }, 600);
         setTimeout(() => {
           blackScreen.classList.add('fade-out');
           invScreen.scrollTop = 0;
           invScreen.classList.add('active');
           requestAnimationFrame(() => { handleScrollAnimation(); });
         }, 1800);
-
         setTimeout(() => {
           envelopeOverlay.style.display = 'none';
           blackScreen.classList.remove('active', 'fade-out');
@@ -905,7 +901,7 @@
       }
       startCountdown();
 
-      // --- Условное поле "Что-то другое" в напитках ---
+      // --- Условное поле "Что-то другое" ---
       const drinkOther = document.getElementById('drinkOther');
       const otherDrinkBlock = document.getElementById('otherDrinkBlock');
       if (drinkOther && otherDrinkBlock) {
@@ -913,6 +909,57 @@
           otherDrinkBlock.style.display = this.checked ? 'block' : 'none';
         });
       }
+
+      // --- Отправка формы в Formspree через AJAX ---
+      const guestForm = document.getElementById('guestForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const formSuccess = document.getElementById('formSuccess');
+      const otherDrinkInput = document.getElementById('otherDrinkInput');
+
+      guestForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Если "Что-то другое" заполнено — добавляем скрытое поле, чтобы попал текст
+        if (otherDrinkInput && otherDrinkInput.value.trim() !== '') {
+          const hidden = document.createElement('input');
+          hidden.type = 'hidden';
+          hidden.name = 'Напитки (уточнение)';
+          hidden.value = otherDrinkInput.value.trim();
+          guestForm.appendChild(hidden);
+        }
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Отправка...';
+
+        try {
+          const response = await fetch(guestForm.action, {
+            method: 'POST',
+            body: new FormData(guestForm),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            guestForm.querySelectorAll('.form-group, .form-submit').forEach(el => {
+              el.style.display = 'none';
+            });
+            formSuccess.style.display = 'block';
+          } else {
+            let msg = 'Не удалось отправить. Попробуйте ещё раз.';
+            try {
+              const data = await response.json();
+              if (data && data.errors) msg = data.errors.map(x => x.message).join(', ');
+            } catch (_) {}
+            alert(msg);
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        } catch (err) {
+          alert('Ошибка сети. Проверьте интернет и попробуйте снова.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
     });
   </script>
 </body>
