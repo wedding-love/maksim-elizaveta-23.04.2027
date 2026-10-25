@@ -149,6 +149,17 @@
       text-transform: uppercase; font-weight: 600;
       white-space: nowrap;
     }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      text-align: center;
+      letter-spacing: 5px;
+      opacity: 0.9;
+      margin-top: 16px;
+      font-weight: 500;
+      font-style: italic;
+      white-space: nowrap;
+    }
     .hero-date {
       font-family: 'Cormorant Garamond', serif; font-size: 20px;
       text-align: center; letter-spacing: 8px; opacity: 0.9;
@@ -372,6 +383,14 @@
       font-style: italic;
       color: #1E1E1E;
     }
+    .form-hint {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: #6B5E53;
+      font-style: italic;
+      line-height: 1.4;
+      margin: -4px 0 12px 0;
+    }
     .form-input {
       width: 100%;
       padding: 14px 16px;
@@ -412,6 +431,47 @@
       margin: 0;
       flex-shrink: 0;
     }
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 5px;
+    }
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      cursor: pointer;
+      color: #1E1E1E;
+      font-weight: 500;
+    }
+    .checkbox-option input {
+      width: 18px;
+      height: 18px;
+      accent-color: #4A3F35;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      border: 1px solid #D6C7B8;
+      background: #FAFAFA;
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      color: #1E1E1E;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .form-textarea:focus {
+      border-color: #4A3F35;
+    }
     .form-submit {
       width: 100%;
       max-width: 340px;
@@ -433,6 +493,10 @@
     }
     .form-submit:hover {
       background: #4A3F35;
+    }
+    .other-drink-block {
+      display: none;
+      margin-top: 14px;
     }
 
     /* Контакты */
@@ -506,8 +570,9 @@
       .inv-form { padding: 60px 20px; }
       .form-title { font-size: 48px; }
       .form-label { font-size: 18px; }
-      .form-input { font-size: 18px; padding: 12px 14px; }
-      .radio-option { font-size: 18px; gap: 8px; }
+      .form-hint { font-size: 15px; }
+      .form-input, .form-textarea { font-size: 18px; padding: 12px 14px; }
+      .radio-option, .checkbox-option { font-size: 18px; gap: 8px; }
       .contact-phone { font-size: 22px; }
     }
   </style>
@@ -532,6 +597,7 @@
       <div class="inv-hero fade-in-element">
         <div>
           <div class="hero-names">MAXIM &amp; ELIZAVETA</div>
+          <div class="hero-subtitle">The Wedding Day</div>
           <div class="hero-date">23.04.2027</div>
         </div>
         <div class="love-text">
@@ -607,7 +673,7 @@
         </p>
       </div>
 
-      <!-- ТАЙМЕР (перед анкетой) -->
+      <!-- ТАЙМЕР -->
       <div class="countdown-section fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
@@ -641,16 +707,85 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Ваше имя и фамилия</label>
-          <input type="text" class="form-input" placeholder="Иван Петров">
+          <label class="form-label">Имя и Фамилия</label>
+          <input type="text" class="form-input" placeholder="Введите ваше полное имя" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Вы планируете присутствовать?</label>
+          <label class="form-label">Сможете ли вы присутствовать?</label>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="attendance" value="yes"> Да, с радостью</label>
-            <label class="radio-option"><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
+            <label class="radio-option">
+              <input type="radio" name="attendance" value="yes" required>
+              Да, с радостью
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="attendance" value="no">
+              К сожалению, нет
+            </label>
           </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Будете ли вы со своей второй половинкой?</label>
+          <p class="form-hint">Если да, укажите имя и фамилию вас двоих</p>
+          <input type="text" class="form-input" placeholder="Иван и Мария Петровы">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Предпочтения по меню</label>
+          <div class="checkbox-group">
+            <label class="checkbox-option">
+              <input type="checkbox" name="food" value="meat">
+              Мясо
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="food" value="fish">
+              Рыба
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="food" value="vegetarian">
+              Вегетарианское
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Аллергии или особые пожелания</label>
+          <textarea class="form-textarea" placeholder="Укажите, если у вас есть аллергия на какие-либо продукты или особые диетические требования"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Предпочтения по напиткам</label>
+          <div class="checkbox-group">
+            <label class="checkbox-option">
+              <input type="checkbox" name="drink" value="wine">
+              Вино
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="drink" value="champagne">
+              Шампанское
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="drink" value="vodka">
+              Водка
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="drink" value="soft">
+              Безалкогольное
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="drink" value="other" id="drinkOther">
+              Что-то другое
+            </label>
+          </div>
+          <div class="other-drink-block" id="otherDrinkBlock">
+            <input type="text" class="form-input" id="otherDrinkInput" placeholder="Напишите, что бы вам хотелось">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ваши пожелания молодожёнам</label>
+          <textarea class="form-textarea" placeholder="Напишите несколько тёплых слов..."></textarea>
         </div>
 
         <button class="form-submit">Отправить</button>
@@ -792,6 +927,15 @@
         setInterval(updateTimer, 1000);
       }
       startCountdown();
+
+      // --- Условное поле "Что-то другое" в напитках ---
+      const drinkOther = document.getElementById('drinkOther');
+      const otherDrinkBlock = document.getElementById('otherDrinkBlock');
+      if (drinkOther && otherDrinkBlock) {
+        drinkOther.addEventListener('change', function() {
+          otherDrinkBlock.style.display = this.checked ? 'block' : 'none';
+        });
+      }
     });
   </script>
 </body>
